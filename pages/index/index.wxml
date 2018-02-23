@@ -1,0 +1,33 @@
+<!--index.wxml-->
+<view class="container">
+    <view class="header" >
+      <block wx:if="{{!inputMod}}">
+        <image class='plus' src='../../assets/keyborad.png' catch:tap='toggleMod'></image>
+        <input class="new-todo" value="{{ input }}" placeholder="Anything here..." auto-focus bindinput="inputChangeHandle"/>
+        <image class="plus" src="../../assets/plus.png" catch:tap="addTodos"/>
+      </block>
+      <block wx:else>
+        <image class='plus' src='../../assets/record.png' catch:tap='toggleMod'></image>
+        <view class='record' catchtouchstart='startRecord' catchtouchend='stopRecord'>按住 录音...</view>
+      </block>
+    </view>
+    <scroll-view scroll-y class="todos" wx:if="{{ todos.length }}">
+      <view class="item" wx:for="{{ todos }}" wx:key="{{ index }}" >
+      <view class='time'>{{item._creatTime ? item._creatTime+'前 ...' : '刚刚 ...'}}</view>
+        <icon class="checkbox" type="{{item.completed ? 'success' : 'circle'}}" size="16" catchtap='toggleTodo' data-index="{{ index }}"/>
+        <view class='content'  bindtap='playVoice' data-index="{{ index }}">
+          <view class="name {{item.completed ? 'finish' : ''}}" >
+          {{item.title}}
+          </view>
+           <image class='yuying' src='../../assets/yuying.png' wx:if="{{item.voice}}"></image>
+        </view>
+        <icon class="remove" type="clear" size="18" catch:tap='removeTodo' data-index="{{ index }}"/>
+      </view>
+    </scroll-view>
+    <block wx:else>
+      <view class="empty">
+         <text class="title">Congratulations!</text>
+      <text class="content">现在没有任何工作需要处理.</text>
+      </view>
+    </block>
+</view>
