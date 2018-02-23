@@ -10,19 +10,19 @@
 }
 
 .header .plus {
-  width: 41rpx;
-  height: 41rpx;
+  width: 53rpx;
+  height: 53rpx;
   margin-right: 20rpx;
 }
 
 .header .new-todo {
   flex: 1;
-  font-size: 28rpx;
+  font-size: 30rpx;
 }
 .header .record{
   flex: 1;
-  font-size: 28rpx;
-  color: #ccc;
+  font-size: 30rpx;
+  color: #777;
    padding: 8rpx; 
    border-radius: 8rpx;
 }

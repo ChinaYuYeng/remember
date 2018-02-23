@@ -36,8 +36,11 @@ Page({
   },
   startRecord:function(){
     var me = this;
+    this.startTime = +new Date();
     wx.startRecord({
       success:function(res){
+        var endTime = +new Date();
+        if(endTime - me.startTime < 1000) return;
           wx.saveFile({
             tempFilePath:res.tempFilePath,
             success:function(res){
