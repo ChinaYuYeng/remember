@@ -28,6 +28,8 @@ Page({
         return Object.assign( v, { _creatTime: me.transformDate(v.creatTime) })
       }).filter(function(k){
           return k;
+      }).sort(function(a,b){
+        return a.creatTime - b.creatTime;
       })
       this.setData({ todos: todos})
     }
