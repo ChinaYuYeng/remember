@@ -59,6 +59,7 @@ Page({
   addTodos: function (data) {
     var me = this;
     var todos = this.data.todos
+    if (!this.data.input.trim() && !data.voice) return;
     todos.unshift({ title: this.data.input.trim(), voice: data.voice, completed: false, creatTime: +new Date()})
     this.setData({
       input: '',
