@@ -21,7 +21,6 @@
 }
 .header .record{
   flex: 1;
-  border: 1rpx solid #ccc;
   font-size: 28rpx;
   color: #ccc;
    padding: 8rpx; 
